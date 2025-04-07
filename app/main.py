@@ -4,10 +4,11 @@ from fastapi.middleware.cors import CORSMiddleware
 from datetime import timedelta
 from typing import Annotated
 
-from app import models, schemas, auth
-from app.database import SessionLocal, engine
-from app.config import settings
-from app.database import get_db,Session
+from app import models, schemas
+from app.api.endpoints import auth
+from app.db.session import SessionLocal, engine
+from app.core.config import settings
+from app.db.session import get_db,Session
 
 # 创建数据库表
 models.Base.metadata.create_all(bind=engine)
